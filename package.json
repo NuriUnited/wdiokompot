@@ -1,0 +1,20 @@
+{
+    "name": "wdiokompot",
+    "version": "1.0.0",
+    "description": "Kompot UI tests with wdio",
+    "scripts": {
+        "test": "npx wdio run wdio.conf.js"
+    },
+    "author": "Nuri",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.16.0",
+        "@babel/preset-env": "^7.16.0",
+        "@babel/register": "^7.16.0",
+        "@wdio/cli": "^7.16.7",
+        "@wdio/devtools-service": "^7.16.7",
+        "@wdio/local-runner": "^7.16.7",
+        "@wdio/mocha-framework": "^7.16.6",
+        "@wdio/spec-reporter": "^7.16.4"
+    }
+}
