@@ -1,17 +1,13 @@
+import LoginPage from '../pages/login.page';
+import ProfilePage from '../pages/profile.page';
+
 describe('Auth', function () {
     it('Successful log in', async function(){
-        await browser.url('/user/login');
-        await expect($('.login-form-button'))
+        await LoginPage.open();
+        await expect(LoginPage.buttonSubmit)
             .toBeDisabled();
-        await $('[qa-id="email"]')
-            .setValue('nu@list.ru');
-        await $('[qa-id="password"]')
-            .setValue('Aa123123');
-        await expect($('.login-form-button'))
-            .toBeEnabled();
-        await $('.login-form-button')
-            .click();
-        await expect($('[alt="avatarIcon"]'))
+        await LoginPage.login('nu@list.ru', 'Aa123123');
+        await expect(ProfilePage.iconUser)
             .toBeDisplayed();
     });
 });
