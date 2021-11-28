@@ -9,18 +9,22 @@ describe('Auth', function () {
     it('Successful log in', async function(){
         await expect(LoginPage.buttonSubmit)
                 .toBeDisabled();
-        await LoginPage.login('nu@list.ru', 'Aa123123');
+        await LoginPage.login(process.env.LOGIN, process.env.PASSWORD);
         await expect(ProfilePage.iconUser)
                 .toBeDisplayed();
     });
 
     it('Log in attempt with non-registered email', async function(){
+
         await LoginPage.login('nu@invalidlist.ru', 'testinvalid');
+
         await expect(LoginPage.notification).toHaveText('Email is not registered');
     });
 
     it('Log in attempt with invalid password', async function(){
-        await LoginPage.login('nu@list.ru', 'testinvalid');
+
+        await LoginPage.login(process.env.LOGIN, 'testinvalid');
+
         await expect(LoginPage.notification).toHaveText('Incorrect password');
     });
 
