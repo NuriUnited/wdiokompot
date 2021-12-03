@@ -15,16 +15,12 @@ describe('Auth', function () {
     });
 
     it('Log in attempt with non-registered email', async function(){
-
         await LoginPage.login('nu@invalidlist.ru', 'testinvalid');
-
         await expect(LoginPage.notification).toHaveText('Email is not registered');
     });
 
     it('Log in attempt with invalid password', async function(){
-
         await LoginPage.login(process.env.LOGIN, 'testinvalid');
-
         await expect(LoginPage.notification).toHaveText('Incorrect password');
     });
 
